@@ -30,7 +30,7 @@ main {
 
 #container-message {
     width: 30%;
-    height: auto;
+    height: 80vh;
     background-color: #FFFFFF;
     box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
     border-radius: 32px;
