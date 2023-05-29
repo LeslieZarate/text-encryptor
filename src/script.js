@@ -74,7 +74,10 @@ function copyToClipboard() {
   }
 
 
-btnEcrypt.addEventListener("click", () => {
+btnEcrypt.addEventListener("click", () => {    
+    if(textArea.value.length == 0) {
+        alert('Ingresa texto')
+    }
     const error = verifyText(textArea.value)
     if (error) {
         paragraphElement.style.color = "red";
@@ -90,10 +93,20 @@ btnEcrypt.addEventListener("click", () => {
 });
 
 btnDecrypt.addEventListener("click", () => {
-    verifyText(textArea.value)
+    if(textArea.value.length == 0) {
+        alert('Ingresa texto')
+    }
+    const error = verifyText(textArea.value)
+    if (error) {
+        paragraphElement.style.color = "red";
+        return;
+    }
     const decryptedText = decrypt(textArea.value);
     message.value = decryptedText;
     textArea.value = "";
+    paragraphElement.style.color = "#495057";
+    overlay.style.display = "none";
+    btnCopy.style.display = "block";
 });
 
 btnCopy.addEventListener("click", () => {
